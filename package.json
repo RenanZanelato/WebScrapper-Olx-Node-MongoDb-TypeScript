@@ -1,0 +1,24 @@
+{
+  "name": "web-scrapper-olx",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "RenanZanelato",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.3"
+  },
+  "dependencies": {
+    "@types/cheerio": "^0.22.31",
+    "axios": "^0.27.2",
+    "cheerio": "^1.0.0-rc.11",
+    "discord.js": "^13.8.0",
+    "mongodb": "^4.7.0",
+    "mongoose": "^6.3.6"
+  }
+}

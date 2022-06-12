@@ -13,3 +13,4 @@ export interface IOlxSchema {
 export interface IOlxDocument extends IOlxSchema, Document {}
 
 export interface IOlxModel extends Model<IOlxDocument> {}
+  

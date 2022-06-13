@@ -1,5 +1,3 @@
-import { OlxModel } from "../models/olx.model";
-
-export interface IScrapper {
-    scrapeOlxData(targetLink: string): Promise<OlxModel[]>;
+export interface IScrapper<TModel> {
+    scrapeData(targetLink: string): Promise<TModel[]>;
 }

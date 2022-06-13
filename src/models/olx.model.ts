@@ -1,4 +1,4 @@
-import { formatDefaultValue } from "../helper/functions.utils";
+import { DEFAULT_IMAGE_VALUE, formatDefaultValue } from "../helper/functions.utils";
 
 export class OlxModel {
     private olxId: string;
@@ -18,46 +18,57 @@ export class OlxModel {
         this.price = '';
         this.locale = '';
     }
+
+    getId(){
+        return this.olxId;
+    }
+    
+    getCreatedDate(){
+        return this.createdDate;
+    }
+
+    getTitle(){
+        return this.title;
+    }
+
+    getLink(){
+        return this.link;
+    }
+
+    getImgLink(){
+        return this.imgLink;
+    }
+
+    getLocale(){
+        return this.locale;
+    }
+
+    getPrice(){
+        return this.price;
+    }
+
     setTitle(title: string | undefined){
         this.title = formatDefaultValue(title);
         return this;
     }
-    getTitle(){
-        return this.title;
-    }
-    getImgLink(){
-        return this.imgLink;
-    }
+
     setImgLink(imgLink: string | undefined){
-        const defaultImageLink = 'https://static.olx.com.br/cd/listing/notFound.png';
-        this.imgLink = formatDefaultValue(imgLink, defaultImageLink);
+        this.imgLink = formatDefaultValue(imgLink, DEFAULT_IMAGE_VALUE);
         return this;
     }
-    getLink(){
-        return this.link;
-    }
+    
     setLink(link: string | undefined){
         this.link = formatDefaultValue(link);
         return this;
     }
-    getLocale(){
-        return this.locale;
-    }
+    
     setLocale(locale: string | undefined){
         this.locale = formatDefaultValue(locale);
         return this;
     }
-    getPrice(){
-        return this.price;
-    }
+    
     setPrice(price: string | undefined){
         this.price = formatDefaultValue(price);
         return this;
-    }
-    getId(){
-        return this.olxId;
-    }
-    getCreatedDate(){
-        return this.createdDate;
     }
 }

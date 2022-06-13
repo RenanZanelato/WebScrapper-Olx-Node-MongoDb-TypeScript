@@ -3,15 +3,15 @@ import axios from 'axios';
 import cheerio from 'cheerio';
 import { IScrapper } from "../interfaces/scrapper.interface";
 
-export class Scrapper implements IScrapper
+export class OlxScrapper implements IScrapper<OlxModel>
 {
-  public async scrapeOlxData(targetLink: string): Promise<OlxModel[]>
+  public async scrapeData(targetLink: string): Promise<OlxModel[]>
   {
     let rawHtmlData = await this.getRawData(targetLink);
     return await this.formatRawData(rawHtmlData);
   } 
 
-  private async getRawData(targetLink: string)
+  private async getRawData(targetLink: string): Promise<string>
   {
     let response = await axios.get(targetLink);
     return response.data;

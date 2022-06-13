@@ -3,7 +3,7 @@ import { IHandler } from "../interfaces/handler.interface";
 import { OlxModel } from "../models/olx.model";
 import { IScrapper } from "../interfaces/scrapper.interface";
 import { IPublisher } from "../interfaces/publisher.interface";
-import {  pagesToSearchData } from "./../configs/config.json";
+import { pagesToSearchData } from "./../configs/config.json";
 
 export class OlxHandler implements IHandler{
     constructor(private readonly service: IScrapper<OlxModel>, 

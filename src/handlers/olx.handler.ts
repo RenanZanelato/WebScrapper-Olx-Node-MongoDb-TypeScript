@@ -4,6 +4,7 @@ import { OlxModel } from "../models/olx.model";
 import { IScrapper } from "../interfaces/scrapper.interface";
 import { IPublisher } from "../interfaces/publisher.interface";
 import {  pagesToSearchData } from "./../configs/config.json";
+
 export class OlxHandler implements IHandler{
     constructor(private readonly service: IScrapper<OlxModel>, 
         private readonly publisher : IPublisher<OlxModel>,

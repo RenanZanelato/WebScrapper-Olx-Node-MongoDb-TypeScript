@@ -22,13 +22,12 @@ export class OlxHandler implements IHandler{
         }
 
         scrappedDataList.map(async (olxModel: OlxModel) => {
-            let exist = await this.repository.findOne(olxModel);
-            if (exist != null) {
+            if (await this.repository.findOne(olxModel) != null) {
                 return;
             }
 
             await this.publisher.sendMessages(olxModel);
-            //await this.repository.insertOne(olxModel);
+            await this.repository.insertOne(olxModel);
         })
     }
     

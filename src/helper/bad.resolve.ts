@@ -3,7 +3,9 @@ import { OlxRepository } from "../repository/olx.repository";
 import { OlxScrapper } from "../services/olx.scrapper.service";
 import { Publisher } from "../services/olx.service.publisher";
 import { DiscordPublisher } from "../services/publishers/olx.discord.service.publisher";
+import { SlackPublisher } from "../services/publishers/olx.slack.service.publisher";
 import { connect } from "./../database/database";
+import { slackWebhook, discordWebHook} from "../configs/config.json";
 
 //my custom dependency injection HAHAHA
 //TODO: do some thing to auto-magic do the dependency injection
@@ -15,8 +17,10 @@ export function GetHandler() : OlxHandler
 {
     connect();
     let service = new OlxScrapper();
-    let discordPublisher = new DiscordPublisher();
-    let publisher = new Publisher([discordPublisher]);
+    
+    let publisher = new Publisher([
+          new SlackPublisher(),
+          new DiscordPublisher()]);
     let repository = new OlxRepository(); 
     return new OlxHandler(service, publisher, repository);
 }

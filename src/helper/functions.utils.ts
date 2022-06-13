@@ -16,6 +16,6 @@ export function olxModelToObj(olxModel: OlxModel) : object
         imgLink: olxModel.getImgLink(),
         link: olxModel.getLink(),
         price: olxModel.getPrice(),
-        locale: olxModel.getLocale(),
+        locale: olxModel.getLocale()
     };
 }

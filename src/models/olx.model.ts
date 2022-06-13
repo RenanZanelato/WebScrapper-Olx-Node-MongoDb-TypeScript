@@ -71,4 +71,15 @@ export class OlxModel {
         this.price = formatDefaultValue(price);
         return this;
     }
+
+    toString() : string
+    {
+        return `olxId: ${this.getId()},
+        createdDate: ${this.getCreatedDate()},
+        title: ${this.getTitle()},
+        imgLink: ${this.getImgLink()},
+        link: ${this.getLink()},
+        price: ${this.getPrice()},
+        locale: ${this.getLocale()}`;
+    }
 }

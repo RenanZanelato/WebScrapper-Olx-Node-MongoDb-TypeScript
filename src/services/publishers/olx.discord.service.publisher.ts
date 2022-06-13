@@ -13,6 +13,10 @@ export class DiscordPublisher implements IPublisher<OlxModel>
     }
 
     async sendMessages(message: OlxModel) {
+      if(discordWebHook.length <= 0){
+        console.log("Discord not configured");
+        return;
+      }
         
         const messageEmbed = new MessageEmbed()
             .setColor('#0099ff')

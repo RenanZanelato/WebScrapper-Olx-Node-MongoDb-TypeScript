@@ -4,6 +4,6 @@ import { logTotalResult } from "./helper/functions.utils";
 
 (async () => {
     let handler = GetHandler();
-    let totalData = await handler.Execute(targetSite);
+    let totalData = await handler.ExecutePerPage(targetSite);
     logTotalResult(totalData);
 })();

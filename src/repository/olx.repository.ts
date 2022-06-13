@@ -5,7 +5,6 @@ import { olxModelToObj } from "./../helper/functions.utils";
 
 export class OlxRepository 
 {
-
     async findOne(olxModel : OlxModel) : Promise<IOlxDocument | null>
     {
        return await DocumentModule.findOne({ olxId: olxModel.getId })   

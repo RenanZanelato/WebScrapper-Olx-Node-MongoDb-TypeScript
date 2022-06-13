@@ -7,6 +7,12 @@ export function formatDefaultValue(modelData: any, defaultFormat: string = '???'
     return typeof modelData == 'undefined' || modelData.length == 0 ? defaultFormat : modelData.toString();
 }
 
+export function logTotalResult(totalNewData: number) : void
+{
+    console.log("Total Data Scraped: "+totalNewData)
+}
+
+
 export function olxModelToObj(olxModel: OlxModel) : object
 {
     return {

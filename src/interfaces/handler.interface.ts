@@ -1,5 +1,5 @@
 export interface IHandler
 {
-    Execute(targetSite: string) : Promise<void>;
-    ExecutePerPage(targetSite: string) : Promise<void>;
+    Execute(targetSite: string) : Promise<number>;
+    ExecutePerPage(targetSite: string) : Promise<number>;
 }

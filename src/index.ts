@@ -1,5 +1,7 @@
-async function main() {
-  
-}
+import { GetHandler } from "./helper/bad.resolve";
+import { targetSite } from './configs/config.json';
 
-main();
+(async () => {
+    let handler = GetHandler();
+    await handler.Execute(targetSite);
+})();

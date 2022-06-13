@@ -13,8 +13,8 @@ export class Publisher implements IPublisher<OlxModel>
         }
 
         this.listServicePublisher.map(async (servicePublisher: IPublisher<OlxModel>) => {
-           console.log('Publishing '+ servicePublisher.constructor.name)
-           //servicePublisher.sendMessages(message);
+           console.log('Publishing '+ servicePublisher.constructor.name + ' '+ message.getId)
+           servicePublisher.sendMessages(message);
         })
     }
 

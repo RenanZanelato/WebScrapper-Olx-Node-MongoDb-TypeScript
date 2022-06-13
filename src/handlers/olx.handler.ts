@@ -11,17 +11,17 @@ export class OlxHandler implements IHandler{
         private readonly repository: OlxRepository)
     {}
     
-    async Execute(targetSite: string, newsData: number = 0): Promise<number> 
+    async Execute(targetSite: string): Promise<void> 
     {
         console.log("Start scraping from "+ targetSite);
         var scrappedDataList = await this.service.scrapeData(targetSite);
         console.log("Total scraped data "+ scrappedDataList.length);
         
         if(scrappedDataList.length <= 0){
-            return newsData;
+            return;
         }
 
-        await Promise.all(await scrappedDataList.map(async (olxModel: OlxModel) => {
+        scrappedDataList.map(async (olxModel: OlxModel) => {
             let exist = await this.repository.findOne(olxModel);
             if (exist != null) {
                 return;
@@ -29,19 +29,13 @@ export class OlxHandler implements IHandler{
 
             await this.publisher.sendMessages(olxModel);
             //await this.repository.insertOne(olxModel);
-            newsData++;
-        }));
-
-        return newsData; 
+        })
     }
     
-    async ExecutePerPage(targetSite: string): Promise<number> {
-        let newsData = 0
+    async ExecutePerPage(targetSite: string): Promise<void> {
         for (let i = 1; i <= pagesToSearchData; i++) {
-            let totalData = await this.Execute(targetSite+"?o="+i, newsData);
-            newsData = totalData + newsData;
+            await this.Execute(targetSite+"?o="+i);
          }
-         return newsData;
     }
 
 }
